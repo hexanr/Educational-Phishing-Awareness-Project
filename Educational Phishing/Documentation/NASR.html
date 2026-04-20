@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NAZR — Brand Identity</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@300;400;500&family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#F4F1EB;font-family:'IBM Plex Mono',monospace;width:960px;margin:0 auto;}
+.page{width:960px;padding:64px 72px;background:#F4F1EB;}
+
+/* HEADER */
+.hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px;padding-bottom:16px;border-bottom:1px solid #D8D4CC;}
+.hd-brand{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:4px;color:#B0AB9E;}
+.hd-meta{font-size:9px;color:#C0BB9E;letter-spacing:2px;text-align:right;line-height:2;}
+
+/* SECTION LABELS */
+.sl{font-size:9px;letter-spacing:3px;color:#B0AB9E;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.sl::after{content:'';flex:1;height:0.5px;background:#D8D4CC;}
+
+/* LOGO BLOCK */
+.logo-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;}
+.lv{padding:48px 40px;display:flex;flex-direction:column;justify-content:space-between;min-height:200px;}
+.lv-dark{background:#111210;}
+.lv-light{background:#F4F1EB;border:0.5px solid #D8D4CC;}
+.lv-ink{background:#1B3A2D;}
+
+.lv-inner{display:flex;align-items:center;gap:16px;}
+.lv-name{font-family:'Bebas Neue',sans-serif;font-size:38px;letter-spacing:2px;line-height:1;}
+.lv-sub{font-size:8px;letter-spacing:3px;margin-top:4px;opacity:0.4;}
+.lv-tag{font-size:8px;letter-spacing:2px;opacity:0.35;text-transform:uppercase;}
+
+/* ICON VARIANTS */
+.icon-strip{display:flex;gap:0;margin-top:0;}
+.iv{padding:28px 32px;display:flex;flex-direction:column;align-items:center;gap:14px;flex:1;background:#F4F1EB;border:0.5px solid #D8D4CC;}
+.iv-label{font-size:8px;letter-spacing:2px;color:#B0AB9E;text-transform:uppercase;}
+
+/* COLORS */
+.pal{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-bottom:0;}
+.sw{height:90px;display:flex;flex-direction:column;justify-content:flex-end;padding:10px 12px;}
+.sw-name{font-size:10px;font-weight:500;letter-spacing:0.5px;}
+.sw-hex{font-size:8px;opacity:0.65;margin-top:3px;letter-spacing:0.5px;}
+
+/* TYPE */
+.type-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.tb{padding:28px 28px;background:#fff;border:0.5px solid #D8D4CC;}
+.tb-meta{font-size:8px;letter-spacing:2px;color:#B0AB9E;margin-bottom:16px;text-transform:uppercase;}
+.t-display{font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:1px;line-height:1;color:#111210;}
+.t-arabic{font-family:'Heebo',sans-serif;font-size:36px;font-weight:900;color:#111210;direction:rtl;line-height:1.2;}
+.t-mono{font-size:12px;color:#5A5A52;line-height:2.2;}
+.t-weights{display:flex;gap:16px;margin-top:16px;font-size:11px;color:#B0AB9E;}
+
+/* UI COMPONENTS */
+.ui-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.ub{padding:22px 24px;background:#fff;border:0.5px solid #D8D4CC;}
+.ub-lbl{font-size:8px;letter-spacing:2px;color:#B0AB9E;margin-bottom:16px;text-transform:uppercase;}
+
+.btn-p{background:#111210;color:#F4F1EB;padding:9px 20px;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;border:none;display:inline-block;cursor:default;margin-left:6px;}
+.btn-o{background:transparent;color:#111210;padding:9px 20px;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;border:1px solid #111210;display:inline-block;cursor:default;margin-left:6px;}
+.btn-g{background:#1B3A2D;color:#A8D4B8;padding:9px 20px;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;border:none;display:inline-block;cursor:default;}
+
+.badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;font-size:9px;letter-spacing:1.5px;margin-right:5px;margin-bottom:5px;}
+.b-safe{background:#D8EDD8;color:#1B5E1B;}
+.b-warn{background:#F0E8D0;color:#7A4A0A;}
+.b-threat{background:#EDD8D8;color:#6E1515;}
+
+.bar-lbl{display:flex;justify-content:space-between;font-size:9px;color:#B0AB9E;margin-bottom:4px;}
+.bar-bg{height:4px;background:#E8E4DC;margin-bottom:10px;}
+.bar-fill{height:100%;}
+
+/* SPACING / CLEARSPACE */
+.cs-wrap{background:#fff;border:0.5px solid #D8D4CC;padding:48px;display:flex;justify-content:center;align-items:center;position:relative;}
+.cs-guide{position:absolute;top:20px;left:20px;right:20px;bottom:20px;border:1px dashed #D8D4CC;pointer-events:none;}
+.cs-note{font-size:8px;letter-spacing:1px;color:#D0CCC4;position:absolute;}
+
+/* GRID LINES / DIVIDERS */
+.sec{margin-bottom:48px;}
+
+/* FOOTER */
+.ft{display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:0.5px solid #D8D4CC;margin-top:8px;}
+.ft-txt{font-size:8px;letter-spacing:2px;color:#C0BB9E;text-transform:uppercase;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hd">
+    <div>
+      <div class="hd-brand">NAZR — Brand Identity System</div>
+      <div style="font-size:9px;color:#C0BB9E;letter-spacing:1px;margin-top:4px;">نَظَر — URL Threat Detection</div>
+    </div>
+    <div class="hd-meta">
+      VERSION 1.0<br/>
+      2025 — CONFIDENTIAL
+    </div>
+  </div>
+
+  <!-- 01 LOGO LOCKUPS -->
+  <div class="sec">
+    <div class="sl">01 &nbsp; Logo Lockups</div>
+    <div class="logo-row">
+
+      <!-- DARK -->
+      <div class="lv lv-dark">
+        <div class="lv-tag" style="color:#3A3A38;">ON DARK</div>
+        <div class="lv-inner">
+          <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
+            <!-- Eye outline -->
+            <ellipse cx="21" cy="21" rx="19" ry="19" stroke="#4A7A5A" stroke-width="0.8"/>
+            <!-- Iris ring -->
+            <circle cx="21" cy="21" r="12" stroke="#6AAA7A" stroke-width="0.8" fill="none"/>
+            <!-- Scan line H -->
+            <line x1="2" y1="21" x2="40" y2="21" stroke="#4A7A5A" stroke-width="0.5"/>
+            <!-- Pupil -->
+            <circle cx="21" cy="21" r="5" fill="#6AAA7A"/>
+            <circle cx="22.8" cy="19.2" r="1.5" fill="#111210" opacity="0.5"/>
+            <!-- Corner marks -->
+            <path d="M3 8 L3 3 L8 3" stroke="#6AAA7A" stroke-width="1" fill="none"/>
+            <path d="M39 8 L39 3 L34 3" stroke="#6AAA7A" stroke-width="1" fill="none"/>
+            <path d="M3 34 L3 39 L8 39" stroke="#6AAA7A" stroke-width="1" fill="none"/>
+            <path d="M39 34 L39 39 L34 39" stroke="#6AAA7A" stroke-width="1" fill="none"/>
+          </svg>
+          <div>
+            <div class="lv-name" style="color:#F4F1EB;">NAZR</div>
+            <div class="lv-sub" style="color:#F4F1EB;">URL THREAT DETECTION</div>
+          </div>
+        </div>
+        <div style="font-size:8px;letter-spacing:1.5px;color:#3A3A38;">نَظَر</div>
+      </div>
+
+      <!-- LIGHT -->
+      <div class="lv lv-light">
+        <div class="lv-tag" style="color:#C0BB9E;">ON LIGHT</div>
+        <div class="lv-inner">
+          <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
+            <ellipse cx="21" cy="21" rx="19" ry="19" stroke="#2A5A3A" stroke-width="0.8"/>
+            <circle cx="21" cy="21" r="12" stroke="#2A5A3A" stroke-width="0.8" fill="none"/>
+            <line x1="2" y1="21" x2="40" y2="21" stroke="#C0D8C0" stroke-width="0.5"/>
+            <circle cx="21" cy="21" r="5" fill="#1B3A2D"/>
+            <circle cx="22.8" cy="19.2" r="1.5" fill="#F4F1EB" opacity="0.6"/>
+            <path d="M3 8 L3 3 L8 3" stroke="#2A5A3A" stroke-width="1" fill="none"/>
+            <path d="M39 8 L39 3 L34 3" stroke="#2A5A3A" stroke-width="1" fill="none"/>
+            <path d="M3 34 L3 39 L8 39" stroke="#2A5A3A" stroke-width="1" fill="none"/>
+            <path d="M39 34 L39 39 L34 39" stroke="#2A5A3A" stroke-width="1" fill="none"/>
+          </svg>
+          <div>
+            <div class="lv-name" style="color:#111210;">NAZR</div>
+            <div class="lv-sub" style="color:#111210;">URL THREAT DETECTION</div>
+          </div>
+        </div>
+        <div style="font-size:8px;letter-spacing:1.5px;color:#C0BB9E;">نَظَر</div>
+      </div>
+
+      <!-- INK GREEN -->
+      <div class="lv lv-ink">
+        <div class="lv-tag" style="color:#2A5A3A;">ON GREEN</div>
+        <div class="lv-inner">
+          <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
+            <ellipse cx="21" cy="21" rx="19" ry="19" stroke="#A8D4B8" stroke-width="0.8"/>
+            <circle cx="21" cy="21" r="12" stroke="#A8D4B8" stroke-width="0.8" fill="none"/>
+            <line x1="2" y1="21" x2="40" y2="21" stroke="#4A7A5A" stroke-width="0.5"/>
+            <circle cx="21" cy="21" r="5" fill="#A8D4B8"/>
+            <circle cx="22.8" cy="19.2" r="1.5" fill="#1B3A2D" opacity="0.5"/>
+            <path d="M3 8 L3 3 L8 3" stroke="#A8D4B8" stroke-width="1" fill="none"/>
+            <path d="M39 8 L39 3 L34 3" stroke="#A8D4B8" stroke-width="1" fill="none"/>
+            <path d="M3 34 L3 39 L8 39" stroke="#A8D4B8" stroke-width="1" fill="none"/>
+            <path d="M39 34 L39 39 L34 39" stroke="#A8D4B8" stroke-width="1" fill="none"/>
+          </svg>
+          <div>
+            <div class="lv-name" style="color:#F4F1EB;">NAZR</div>
+            <div class="lv-sub" style="color:#F4F1EB;">URL THREAT DETECTION</div>
+          </div>
+        </div>
+        <div style="font-size:8px;letter-spacing:1.5px;color:#4A7A5A;">نَظَر</div>
+      </div>
+    </div>
+
+    <!-- ICON VARIANTS -->
+    <div class="icon-strip" style="margin-top:12px;">
+      <!-- Hex icon dark -->
+      <div class="iv" style="background:#111210;border:none;">
+        <svg width="52" height="52" viewBox="0 0 42 42" fill="none">
+          <ellipse cx="21" cy="21" rx="19" ry="19" stroke="#4A7A5A" stroke-width="0.8"/>
+          <circle cx="21" cy="21" r="12" stroke="#6AAA7A" stroke-width="0.8" fill="none"/>
+          <line x1="2" y1="21" x2="40" y2="21" stroke="#4A7A5A" stroke-width="0.5"/>
+          <circle cx="21" cy="21" r="5" fill="#6AAA7A"/>
+          <circle cx="22.8" cy="19.2" r="1.5" fill="#111210" opacity="0.4"/>
+          <path d="M3 8 L3 3 L8 3" stroke="#6AAA7A" stroke-width="1" fill="none"/>
+          <path d="M39 8 L39 3 L34 3" stroke="#6AAA7A" stroke-width="1" fill="none"/>
+          <path d="M3 34 L3 39 L8 39" stroke="#6AAA7A" stroke-width="1" fill="none"/>
+          <path d="M39 34 L39 39 L34 39" stroke="#6AAA7A" stroke-width="1" fill="none"/>
+        </svg>
+        <div class="iv-label" style="color:#3A3A38;">Icon / Dark</div>
+      </div>
+      <!-- Rounded app icon -->
+      <div class="iv" style="background:#F4F1EB;">
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+          <rect width="52" height="52" rx="12" fill="#1B3A2D"/>
+          <ellipse cx="26" cy="26" rx="16" ry="16" stroke="#6AAA7A" stroke-width="0.8"/>
+          <circle cx="26" cy="26" r="10" stroke="#4A7A5A" stroke-width="0.8" fill="none"/>
+          <line x1="10" y1="26" x2="42" y2="26" stroke="#3A5A3A" stroke-width="0.5"/>
+          <circle cx="26" cy="26" r="4.5" fill="#A8D4B8"/>
+          <circle cx="27.5" cy="24.5" r="1.2" fill="#1B3A2D" opacity="0.5"/>
+        </svg>
+        <div class="iv-label">App Icon</div>
+      </div>
+      <!-- Circle -->
+      <div class="iv" style="background:#F4F1EB;">
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+          <circle cx="26" cy="26" r="25" fill="#111210"/>
+          <ellipse cx="26" cy="26" rx="16" ry="16" stroke="#6AAA7A" stroke-width="0.8"/>
+          <circle cx="26" cy="26" r="10" stroke="#4A7A5A" stroke-width="0.8" fill="none"/>
+          <line x1="10" y1="26" x2="42" y2="26" stroke="#3A5A3A" stroke-width="0.4"/>
+          <circle cx="26" cy="26" r="4" fill="#6AAA7A"/>
+        </svg>
+        <div class="iv-label">Circle</div>
+      </div>
+      <!-- Wordmark only -->
+      <div class="iv" style="background:#F4F1EB;justify-content:center;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:40px;letter-spacing:4px;color:#111210;line-height:1;">NAZR</div>
+        <div class="iv-label">Wordmark</div>
+      </div>
+      <!-- Arabic only -->
+      <div class="iv" style="background:#1B3A2D;border:none;">
+        <div style="font-family:'Heebo',sans-serif;font-size:32px;font-weight:900;color:#A8D4B8;direction:rtl;line-height:1;">نَظَر</div>
+        <div class="iv-label" style="color:#4A7A5A;">Arabic</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 COLORS -->
+  <div class="sec">
+    <div class="sl">02 &nbsp; Color System</div>
+    <div class="pal">
+      <div class="sw" style="background:#111210;">
+        <div class="sw-name" style="color:#3A3A38;">Void</div>
+        <div class="sw-hex" style="color:#2A2A28;">#111210</div>
+      </div>
+      <div class="sw" style="background:#1B3A2D;">
+        <div class="sw-name" style="color:#3A6A4A;">Forest</div>
+        <div class="sw-hex" style="color:#2A5A3A;">#1B3A2D — Primary</div>
+      </div>
+      <div class="sw" style="background:#6AAA7A;">
+        <div class="sw-name" style="color:#1B5A2A;">Signal</div>
+        <div class="sw-hex" style="color:#1B5A2A;">#6AAA7A — Accent</div>
+      </div>
+      <div class="sw" style="background:#F4F1EB;border:0.5px solid #D8D4CC;">
+        <div class="sw-name" style="color:#B0AB9E;">Bone</div>
+        <div class="sw-hex" style="color:#C0BB9E;">#F4F1EB — BG</div>
+      </div>
+      <div class="sw" style="background:#C85A3A;">
+        <div class="sw-name" style="color:#F0D0C0;">Threat</div>
+        <div class="sw-hex" style="color:#F0D0C0;">#C85A3A — Danger</div>
+      </div>
+      <div class="sw" style="background:#A87A1A;">
+        <div class="sw-name" style="color:#F0E0A0;">Caution</div>
+        <div class="sw-hex" style="color:#F0E0A0;">#A87A1A — Warning</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 TYPOGRAPHY -->
+  <div class="sec">
+    <div class="sl">03 &nbsp; Typography</div>
+    <div class="type-grid">
+      <div class="tb">
+        <div class="tb-meta">Display — Bebas Neue</div>
+        <div class="t-display">THREAT<br/>DETECT<br/>ED.</div>
+        <div class="t-weights">
+          <span>400 Regular</span>
+        </div>
+      </div>
+      <div class="tb">
+        <div class="tb-meta">Arabic — Heebo</div>
+        <div class="t-arabic">نَظَر<br/>رصد التهديدات</div>
+        <div class="t-weights">
+          <span style="font-family:'Heebo',sans-serif;font-weight:300;">300</span>
+          <span style="font-family:'Heebo',sans-serif;font-weight:400;">400</span>
+          <span style="font-family:'Heebo',sans-serif;font-weight:700;">700</span>
+          <span style="font-family:'Heebo',sans-serif;font-weight:900;">900</span>
+        </div>
+      </div>
+      <div class="tb" style="grid-column:1/-1;">
+        <div class="tb-meta">Mono — IBM Plex Mono</div>
+        <div class="t-mono">
+          risk_score: 91/100 &nbsp;&nbsp; protocol: HTTP &nbsp;&nbsp; tld: .tk — flagged<br/>
+          domain: paypal-secure-verify.tk &nbsp;&nbsp; verdict: PHISHING<br/>
+          checks_passed: 1/8 &nbsp;&nbsp; scan_time: 0.38s &nbsp;&nbsp; status: BLOCKED
+        </div>
+        <div class="t-weights">
+          <span style="font-weight:300;">300 Light</span>
+          <span style="font-weight:400;">400 Regular</span>
+          <span style="font-weight:500;">500 Medium</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 UI COMPONENTS -->
+  <div class="sec">
+    <div class="sl">04 &nbsp; UI Components</div>
+    <div class="ui-grid">
+      <div class="ub">
+        <div class="ub-lbl">Buttons</div>
+        <div class="btn-p">فحص الرابط</div>
+        <div class="btn-o">تقرير</div>
+        <br/><br/>
+        <div class="btn-g">آمن — تجاهل</div>
+      </div>
+      <div class="ub">
+        <div class="ub-lbl">Status Badges</div>
+        <div>
+          <span class="badge b-safe">SAFE &nbsp; 0%</span>
+          <span class="badge b-warn">SUSPICIOUS</span>
+          <span class="badge b-threat">PHISHING</span>
+        </div>
+      </div>
+      <div class="ub" style="grid-column:1/-1;">
+        <div class="ub-lbl">Risk Score Bars</div>
+        <div class="bar-lbl"><span>paypal-secure-login.xyz</span><span style="color:#C85A3A;">91%</span></div>
+        <div class="bar-bg"><div class="bar-fill" style="width:91%;background:#C85A3A;"></div></div>
+        <div class="bar-lbl"><span>amazon-update-verify.ml</span><span style="color:#A87A1A;">58%</span></div>
+        <div class="bar-bg"><div class="bar-fill" style="width:58%;background:#A87A1A;"></div></div>
+        <div class="bar-lbl"><span>google.com</span><span style="color:#1B5A2A;">12%</span></div>
+        <div class="bar-bg"><div class="bar-fill" style="width:12%;background:#3A7A3A;"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 CLEAR SPACE -->
+  <div class="sec">
+    <div class="sl">05 &nbsp; Clear Space & Minimum Size</div>
+    <div class="cs-wrap">
+      <div class="cs-guide"></div>
+      <div style="text-align:center;">
+        <svg width="56" height="56" viewBox="0 0 42 42" fill="none">
+          <ellipse cx="21" cy="21" rx="19" ry="19" stroke="#2A5A3A" stroke-width="0.8"/>
+          <circle cx="21" cy="21" r="12" stroke="#2A5A3A" stroke-width="0.8" fill="none"/>
+          <line x1="2" y1="21" x2="40" y2="21" stroke="#C0D8C0" stroke-width="0.5"/>
+          <circle cx="21" cy="21" r="5" fill="#1B3A2D"/>
+          <circle cx="22.8" cy="19.2" r="1.5" fill="#F4F1EB" opacity="0.6"/>
+          <path d="M3 8 L3 3 L8 3" stroke="#2A5A3A" stroke-width="1" fill="none"/>
+          <path d="M39 8 L39 3 L34 3" stroke="#2A5A3A" stroke-width="1" fill="none"/>
+          <path d="M3 34 L3 39 L8 39" stroke="#2A5A3A" stroke-width="1" fill="none"/>
+          <path d="M39 34 L39 39 L34 39" stroke="#2A5A3A" stroke-width="1" fill="none"/>
+        </svg>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:3px;color:#111210;margin-top:8px;">NAZR</div>
+        <div style="font-size:8px;letter-spacing:2px;color:#B0AB9E;margin-top:4px;">MIN SIZE — 24PX ICON / 80PX LOCKUP</div>
+      </div>
+      <div class="cs-note" style="top:24px;left:50%;transform:translateX(-50%);">↕ clear space = x</div>
+      <div class="cs-note" style="bottom:24px;left:50%;transform:translateX(-50%);">↕ clear space = x</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="ft">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <svg width="14" height="14" viewBox="0 0 42 42" fill="none">
+        <ellipse cx="21" cy="21" rx="19" ry="19" stroke="#B0AB9E" stroke-width="1.2"/>
+        <circle cx="21" cy="21" r="4" fill="#B0AB9E"/>
+      </svg>
+      <span style="font-size:9px;letter-spacing:3px;color:#B0AB9E;text-transform:uppercase;">NAZR</span>
+      <span style="font-size:9px;color:#D0CCB8;font-family:'Heebo',sans-serif;">نَظَر</span>
+    </div>
+    <div class="ft-txt">Brand Identity System — Internal Use Only</div>
+    <div class="ft-txt">v1.0 / 2025</div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,398 @@
+<?php
+/**
+ * Language Configuration File
+ * 
+ * يحتوي على جميع النصوص بالعربية والإنجليزية
+ */
+
+// تحديد اللغة من الـ URL أو الـ Session
+$currentLang = isset($_GET['lang']) ? $_GET['lang'] : (isset($_SESSION['lang']) ? $_SESSION['lang'] : 'ar');
+
+// التحقق من اللغة
+if (!in_array($currentLang, ['ar', 'en'])) {
+    $currentLang = 'ar';
+}
+
+// حفظ اللغة في الـ Session
+$_SESSION['lang'] = $currentLang;
+
+// تحديد اتجاه الصفحة (RTL للعربي، LTR للإنجليزي)
+$pageDir = ($currentLang === 'ar') ? 'rtl' : 'ltr';
+$pageAlign = ($currentLang === 'ar') ? 'right' : 'left';
+
+// ============================================
+// ARABIC TRANSLATIONS
+// ============================================
+
+$ar = [
+    // العام
+    'language' => 'العربية',
+    'direction' => 'rtl',
+    
+    // الصفحة الرئيسية
+    'warning_title' => 'مشروع توعوي - تحذير أمني',
+    'warning_subtitle' => 'هذا موقع تعليمي توعوي فقط',
+    'warning_description' => 'الغرض: شرح خطورة هجمات الـ Phishing وكيفية الحماية منها',
+    'what_will_learn' => 'ماذا ستتعلم؟',
+    'demo_part' => 'الجزء التوضيحي',
+    'demo_desc' => 'موقع مزيف بسيط يظهر كيف يعمل الهجوم',
+    'defense_part' => 'الجزء الدفاعي',
+    'defense_desc' => 'شرح الحماية والطرق الصحيحة',
+    'legal_warning' => 'تحذير قانوني',
+    'legal_text' => 'استخدام هذا الكود لأغراض احتيال = جريمة',
+    'real_attacks' => 'خداع أشخاص حقيقيين = جنايات جنائية',
+    'educational_use' => 'الاستخدام التعليمي فقط = قانوني',
+    'full_responsibility' => 'المسؤولية الكاملة على المستخدم',
+    'disagree' => '← رجوع (لا أوافق)',
+    'agree' => 'أفهم المقصد → متابعة التعليم',
+    'disclaimer' => 'إخلاء مسؤولية: بالضغط على "متابعة"، أنت توافق على أن هذا المشروع بهدف توعوي تعليمي فقط',
+    
+    // صفحة التسجيل
+    'login_title' => 'تسجيل الدخول',
+    'educational_project' => 'هذا مشروع توعوي',
+    'project_description' => 'هذا الموقع مصمم لتعليمك كيفية تعمل هجمات Phishing وكيفية حماية نفسك منها',
+    'fake_website' => 'موقع مزيف بسيط',
+    'mimics_real_attack' => 'يحاكي هجوم حقيقي',
+    'shows_vulnerabilities' => 'يوضح الثغرات الأمنية',
+    'how_to_detect' => 'شرح كيفية اكتشاف الموقع المزيف',
+    'correct_protection' => 'طرق الحماية الصحيحة',
+    'best_practices' => 'أفضل الممارسات الأمنية',
+    'criminal_use' => 'استخدام هذا الكود لأغراض إجرامية = جريمة',
+    'deceiving_real_people' => 'خداع أشخاص حقيقيين = جنايات جنائية',
+    'educational_only' => 'الاستخدام التعليمي فقط = قانوني',
+    'full_user_responsibility' => 'المسؤولية الكاملة على المستخدم',
+    'correct_teaching' => 'التعليم الصحيح',
+    'understand_vulnerabilities' => 'افهم الثغرات الأمنية',
+    'learn_defense' => 'تعلم الدفاع والحماية',
+    'apply_best_practices' => 'طبق أفضل الممارسات',
+    'warning_dont_enter_real_data' => 'لا تدخل بيانات حقيقية!',
+    'username' => 'اسم المستخدم',
+    'password' => 'كلمة المرور',
+    'enter_username' => 'أدخل اسم المستخدم',
+    'enter_password' => 'أدخل كلمة المرور',
+    'remember_me' => 'تذكرني',
+    'login' => 'تسجيل الدخول',
+    'create_account' => 'إنشاء حساب جديد',
+    'protection_guide_link' => '📚 دليل الحماية',
+    'warning_link' => '⚠️ تحذير',
+    'fill_all_fields' => 'يرجى ملء جميع الحقول',
+    'username_length' => 'اسم المستخدم يجب أن يكون من 3 إلى 20 حرف',
+    'password_length' => 'كلمة المرور يجب أن تكون 6 أحرف على الأقل',
+    'security_warning_message' => 'هذا موقع توعوي فقط - لا تدخل بيانات حقيقية!',
+    'website_uses_cookies' => 'هذا الموقع يستخدم ملفات تعريف الارتباط لتحسين الأمان',
+    'ok_button' => 'موافق',
+    
+    // صفحة الشكر
+    'thank_you' => 'مبروك! اكتملت الخطوة الأولى',
+    'now_learn' => 'الآن دعك تتعلم ماذا حدث بالفعل...',
+    'important_note' => 'ملاحظة مهمة',
+    'saw_fake_website' => 'أنت الآن رأيت بعينيك كيف يمكن للموقع المزيف أن يخدع المستخدمين!',
+    'safe_educational_environment' => 'هذه تجربة تعليمية في بيئة آمنة ومحكومة',
+    'what_happened' => 'ماذا حدث للتو؟',
+    'entered_data' => 'أدخلت بيانات تسجيل دخول في موقع بسيط',
+    'website_saved_data' => 'الموقع حفظ البيانات في قاعدة البيانات',
+    'data_encrypted_safe' => 'البيانات مشفرة وآمنة (في هذا المشروع)',
+    'redirected_to_page' => 'تم توجيهك إلى هذه الصفحة التعليمية',
+    'real_vs_educational' => 'الفرق بين الواقع والتعليم',
+    'in_real_world' => 'في الواقع الفعلي',
+    'attacker_sends' => 'المهاجم يرسل الموقع لك عبر بريد مزيف، يسرق بيانات حسابك، يدخل حسابك الأصلي ويسرق فلوسك!',
+    'in_this_project' => 'في هذا المشروع',
+    'safe_educational_site' => 'موقع توعوي آمن يعلمك كيفية التعرف على الهجمات والحماية من نفسك',
+    'real_dangers' => 'الأخطار الحقيقية',
+    'real_phishing_can_lead' => 'في الواقع، يمكن لهجوم Phishing أن يؤدي إلى:',
+    'steal_money' => 'سرقة أموال من حسابك البنكي',
+    'steal_personal_data' => 'سرقة بيانات شخصية حساسة',
+    'blackmail_threats' => 'ابتزاز وتهديد',
+    'identity_theft' => 'سرقة الهوية الشخصية',
+    'lose_hard_work' => 'خسارة أشهر من العمل الشاق',
+    'what_should_learn' => 'ماذا يجب أن تتعلم؟',
+    'how_to_detect_phishing' => 'كيفية التعرف: على المواقع المزيفة والرسائل المريبة',
+    'protect_yourself' => 'الحماية: استخدام كلمات مرور قوية و 2FA',
+    'trust_official' => 'الثقة: في الجهات الرسمية فقط والتحقق من الـ URL',
+    'understand_risks' => 'المسؤولية: فهم الأخطار والإبلاغ عن المشاكل',
+    'use_security_tools' => 'البرامج: استخدام برامج أمان موثوقة',
+    'best_security_practices' => 'أفضل الممارسات الأمنية',
+    'protect_from_phishing' => 'لتحمي نفسك من Phishing:',
+    'open_from_correct_url' => 'افتح المواقع من عنوان URL الصحيح',
+    'look_for_green_lock' => 'ابحث عن القفل الأخضر 🔒 و HTTPS',
+    'dont_click_email_links' => 'لا تضغط على روابط من رسائل البريد',
+    'strong_unique_passwords' => 'استخدم كلمات مرور قوية مختلفة',
+    'enable_2fa' => 'فعّل المصادقة الثنائية (2FA)',
+    'monitor_accounts' => 'راقب حسابك بانتظام',
+    'next_steps' => 'الخطوات التالية',
+    'read_full_guide' => 'اقرأ دليل الحماية الكامل',
+    'learn_vulnerabilities' => 'تعلم الثغرات الأمنية والحلول',
+    'discover_errors' => 'جرب اكتشاف الأخطاء بنفسك',
+    'teach_others' => 'علّم الآخرين كيفية الحماية',
+    'stay_vigilant' => 'ابق متيقظاً للهجمات الحقيقية',
+    'next_steps_full_guide' => '📚 دليل الحماية الكامل',
+    'go_back_to_start' => '← العودة للبداية',
+    'remember_educational' => 'تذكر: هذا المشروع بهدف توعوي وتعليمي فقط',
+    'use_knowledge_wisely' => 'استخدم هذه المعرفة لحماية نفسك والآخرين، وليس لإيذاء أحد',
+    'copyright' => '© 2024 مشروع توعوي تعليمي | جميع الحقوق محفوظة للأغراض التعليمية فقط',
+    
+    // صفحة الحماية
+    'protection_guide' => 'دليل الحماية من Phishing',
+    'learn_protect_yourself' => 'تعلم كيفية حماية نفسك من الهجمات الإلكترونية',
+    'identifying_phishing' => 'كيفية التعرف على موقع Phishing',
+    'phishing_mimics' => 'موقع Phishing يحاول تقليد موقع شرعي لسرقة بيانات الضحايا. إليك العلامات التحذيرية:',
+    'sign' => 'العلامة',
+    'fake_site' => 'موقع مزيف ❌',
+    'real_site' => 'موقع شرعي ✓',
+    'url' => 'الـ URL',
+    'ssl_certificate' => 'شهادة SSL',
+    'no_lock' => 'بدون قفل 🔓',
+    'green_lock' => 'قفل أخضر 🔒',
+    'design' => 'التصميم',
+    'simple_old' => 'بسيط أو نسخة قديمة',
+    'professional_modern' => 'احترافي وحديث',
+    'email' => 'البريد',
+    'strange_address' => 'من عنوان غريب',
+    'official_address' => 'من العنوان الرسمي',
+    'style' => 'الأسلوب',
+    'spelling_errors' => 'أخطاء إملائية',
+    'professional_error_free' => 'احترافي خالي من الأخطاء',
+    'common_vulnerabilities' => 'الثغرات الأمنية الشائعة',
+    'not_encrypting_passwords' => 'عدم تشفير كلمات المرور',
+    'error_no_encryption' => 'خطأ - بدون تشفير',
+    'correct_with_encryption' => 'صحيح - مع التشفير',
+    'password_visible' => 'كلمة المرور مرئية!',
+    'sql_injection_vulnerability' => 'ثغرة SQL Injection',
+    'error_vulnerable' => 'خطأ - معرض للهجوم',
+    'correct_prepared_statements' => 'صحيح - Prepared Statements',
+    'practical_protection' => 'طرق الحماية العملية',
+    'before_login' => 'قبل تسجيل الدخول:',
+    'carefully_check_url' => 'تفقد الـ URL بعناية شديدة',
+    'look_green_lock_https' => 'ابحث عن القفل الأخضر وكلمة HTTPS',
+    'verify_sender_email' => 'تحقق من عنوان البريد الإلكتروني المرسل',
+    'dont_click_links' => 'لا تضغط على روابط في البريد - اذهب للموقع مباشرة',
+    'check_grammar' => 'تفقد الأسلوب والقواعس والإملاء',
+    'verify_trust_signs' => 'تحقق من علامات الثقة والتحقق من الموقع',
+    'protect_your_account' => 'لحماية حسابك:',
+    'strong_passwords' => 'استخدم كلمات مرور قوية (حروف + أرقام + رموز)',
+    'different_passwords' => 'استخدم كلمات مرور مختلفة لكل حساب',
+    'enable_2fa_all_accounts' => 'فعّل المصادقة الثنائية (2FA) على جميع الحسابات المهمة',
+    'use_password_manager' => 'استخدم password manager موثوق',
+    'update_software' => 'حدّث متصفحك والبرامج بانتظام',
+    'use_vpn_public_wifi' => 'استخدم VPN على شبكات WiFi العامة',
+    'monitor_account_activity' => 'راقب حسابك بانتظام للنشاط الغريب',
+    'if_fell_victim' => 'إذا وقعت في Phishing:',
+    'change_password_immediately' => 'غيّ كلمة المرور فوراً',
+    'enable_2fa_immediately' => 'فعّل المصادقة الثنائية',
+    'monitor_account' => 'راقب الحساب بحثاً عن نشاط غريب',
+    'report_to_company' => 'أبلغ الشركة الحقيقية',
+    'report_to_authorities' => 'قدم بلاغ للجهات المختصة',
+    'monitor_bank_transfers' => 'راقب حسابات بنكك للتحويلات الغريبة',
+    'reporting_contacts' => 'جهات الإبلاغ العالمية',
+    'international' => '🌍 عالمي',
+    'major_platforms' => '🏢 المنصات الكبرى',
+    'regional' => '🗺️ إقليمي',
+    'google_safe_browsing' => 'Google Safe Browsing',
+    'report_harmful_sites' => 'للإبلاغ عن المواقع الضارة والتصيد الاحتيالي',
+    'microsoft_smartscreen' => 'Microsoft SmartScreen',
+    'report_edge_threats' => 'للإبلاغ عن التهديدات على المتصفح Edge',
+    'icann_domain' => 'ICANN (عن الدومين)',
+    'report_harmful_domains' => 'للإبلاغ عن الدومينات الضارة',
+    'remember_educational_content' => 'تذكر: هذا الدليل لأغراض تعليمية فقط',
+];
+
+// ============================================
+// ENGLISH TRANSLATIONS
+// ============================================
+
+$en = [
+    // General
+    'language' => 'English',
+    'direction' => 'ltr',
+    
+    // Home Page
+    'warning_title' => 'Educational Project - Security Warning',
+    'warning_subtitle' => 'This is an educational awareness website only',
+    'warning_description' => 'Purpose: Explain the dangers of phishing attacks and how to protect yourself',
+    'what_will_learn' => 'What will you learn?',
+    'demo_part' => 'Demo Section',
+    'demo_desc' => 'Simple fake website showing how attacks work',
+    'defense_part' => 'Defense Section',
+    'defense_desc' => 'Explain protection and correct methods',
+    'legal_warning' => 'Legal Warning',
+    'legal_text' => 'Using this code for fraud purposes = Crime',
+    'real_attacks' => 'Deceiving real people = Criminal charges',
+    'educational_use' => 'Educational use only = Legal',
+    'full_responsibility' => 'Full user responsibility',
+    'disagree' => '← Back (I Disagree)',
+    'agree' => 'I Understand → Continue Learning',
+    'disclaimer' => 'Disclaimer: By clicking "Continue", you agree this project is for educational purposes only',
+    
+    // Login Page
+    'login_title' => 'Login',
+    'educational_project' => 'This is an educational project',
+    'project_description' => 'This website is designed to teach you how phishing attacks work and how to protect yourself',
+    'fake_website' => 'Simple fake website',
+    'mimics_real_attack' => 'Mimics real attack',
+    'shows_vulnerabilities' => 'Shows security vulnerabilities',
+    'how_to_detect' => 'Explain how to detect fake website',
+    'correct_protection' => 'Correct protection methods',
+    'best_practices' => 'Best security practices',
+    'criminal_use' => 'Using this code for criminal purposes = Crime',
+    'deceiving_real_people' => 'Deceiving real people = Criminal charges',
+    'educational_only' => 'Educational use only = Legal',
+    'full_user_responsibility' => 'Full user responsibility',
+    'correct_teaching' => 'Correct Teaching',
+    'understand_vulnerabilities' => 'Understand security vulnerabilities',
+    'learn_defense' => 'Learn defense and protection',
+    'apply_best_practices' => 'Apply best practices',
+    'warning_dont_enter_real_data' => 'Don\'t enter real data!',
+    'username' => 'Username',
+    'password' => 'Password',
+    'enter_username' => 'Enter username',
+    'enter_password' => 'Enter password',
+    'remember_me' => 'Remember me',
+    'login' => 'Login',
+    'create_account' => 'Create new account',
+    'protection_guide_link' => '📚 Protection Guide',
+    'warning_link' => '⚠️ Warning',
+    'fill_all_fields' => 'Please fill all fields',
+    'username_length' => 'Username must be between 3 and 20 characters',
+    'password_length' => 'Password must be at least 6 characters',
+    'security_warning_message' => 'This is an educational site only - don\'t enter real data!',
+    'website_uses_cookies' => 'This website uses cookies to improve security',
+    'ok_button' => 'OK',
+    
+    // Thank You Page
+    'thank_you' => 'Congratulations! You completed the first step',
+    'now_learn' => 'Now let\'s learn what actually happened...',
+    'important_note' => 'Important Note',
+    'saw_fake_website' => 'You just saw firsthand how a fake website can deceive users!',
+    'safe_educational_environment' => 'This is an educational experience in a safe and controlled environment',
+    'what_happened' => 'What just happened?',
+    'entered_data' => 'You entered login data on a simple website',
+    'website_saved_data' => 'The website saved the data in a database',
+    'data_encrypted_safe' => 'The data is encrypted and safe (in this project)',
+    'redirected_to_page' => 'You were redirected to this educational page',
+    'real_vs_educational' => 'The difference between reality and education',
+    'in_real_world' => 'In real life',
+    'attacker_sends' => 'The attacker sends you the fake website via email, steals your account credentials, accesses your real account and steals your money!',
+    'in_this_project' => 'In this project',
+    'safe_educational_site' => 'A safe educational website that teaches you how to identify attacks and protect yourself',
+    'real_dangers' => 'Real Dangers',
+    'real_phishing_can_lead' => 'In reality, a phishing attack can lead to:',
+    'steal_money' => 'Stealing money from your bank account',
+    'steal_personal_data' => 'Stealing sensitive personal data',
+    'blackmail_threats' => 'Blackmail and threats',
+    'identity_theft' => 'Identity theft',
+    'lose_hard_work' => 'Loss of months of hard work',
+    'what_should_learn' => 'What should you learn?',
+    'how_to_detect_phishing' => 'How to detect: fake websites and suspicious messages',
+    'protect_yourself' => 'Protection: use strong passwords and 2FA',
+    'trust_official' => 'Trust: only official sources and verify URLs',
+    'understand_risks' => 'Responsibility: understand risks and report issues',
+    'use_security_tools' => 'Tools: use trusted security programs',
+    'best_security_practices' => 'Best Security Practices',
+    'protect_from_phishing' => 'To protect yourself from phishing:',
+    'open_from_correct_url' => 'Open websites from the correct URL address',
+    'look_for_green_lock' => 'Look for the green lock 🔒 and HTTPS',
+    'dont_click_email_links' => 'Don\'t click links in emails',
+    'strong_unique_passwords' => 'Use strong unique passwords for each account',
+    'enable_2fa' => 'Enable Two-Factor Authentication (2FA)',
+    'monitor_accounts' => 'Monitor your accounts regularly',
+    'next_steps' => 'Next Steps',
+    'read_full_guide' => 'Read the complete protection guide',
+    'learn_vulnerabilities' => 'Learn about security vulnerabilities and solutions',
+    'discover_errors' => 'Try to discover errors yourself',
+    'teach_others' => 'Teach others how to protect themselves',
+    'stay_vigilant' => 'Stay alert for real attacks',
+    'next_steps_full_guide' => '📚 Complete Protection Guide',
+    'go_back_to_start' => '← Go Back to Start',
+    'remember_educational' => 'Remember: This project is for educational purposes only',
+    'use_knowledge_wisely' => 'Use this knowledge to protect yourself and others, not to harm anyone',
+    'copyright' => '© 2024 Educational Project | All rights reserved for educational purposes only',
+    
+    // Protection Guide
+    'protection_guide' => 'Phishing Protection Guide',
+    'learn_protect_yourself' => 'Learn how to protect yourself from cyber attacks',
+    'identifying_phishing' => 'How to identify a phishing website',
+    'phishing_mimics' => 'A phishing website tries to mimic a legitimate site to steal victim data. Here are the warning signs:',
+    'sign' => 'Sign',
+    'fake_site' => 'Fake Site ❌',
+    'real_site' => 'Real Site ✓',
+    'url' => 'URL',
+    'ssl_certificate' => 'SSL Certificate',
+    'no_lock' => 'No lock 🔓',
+    'green_lock' => 'Green lock 🔒',
+    'design' => 'Design',
+    'simple_old' => 'Simple or outdated version',
+    'professional_modern' => 'Professional and modern',
+    'email' => 'Email',
+    'strange_address' => 'From strange address',
+    'official_address' => 'From official address',
+    'style' => 'Style',
+    'spelling_errors' => 'Spelling errors',
+    'professional_error_free' => 'Professional and error-free',
+    'common_vulnerabilities' => 'Common Security Vulnerabilities',
+    'not_encrypting_passwords' => 'Not encrypting passwords',
+    'error_no_encryption' => 'Error - No encryption',
+    'correct_with_encryption' => 'Correct - With encryption',
+    'password_visible' => 'Password is visible!',
+    'sql_injection_vulnerability' => 'SQL Injection vulnerability',
+    'error_vulnerable' => 'Error - Vulnerable to attacks',
+    'correct_prepared_statements' => 'Correct - Prepared Statements',
+    'practical_protection' => 'Practical Protection Methods',
+    'before_login' => 'Before login:',
+    'carefully_check_url' => 'Check the URL carefully',
+    'look_green_lock_https' => 'Look for green lock and HTTPS',
+    'verify_sender_email' => 'Verify sender email address',
+    'dont_click_links' => 'Don\'t click links in emails - go directly to website',
+    'check_grammar' => 'Check grammar and spelling',
+    'verify_trust_signs' => 'Verify trust and verification signs',
+    'protect_your_account' => 'To protect your account:',
+    'strong_passwords' => 'Use strong passwords (letters + numbers + symbols)',
+    'different_passwords' => 'Use different passwords for each account',
+    'enable_2fa_all_accounts' => 'Enable Two-Factor Authentication (2FA) on all important accounts',
+    'use_password_manager' => 'Use a trusted password manager',
+    'update_software' => 'Update your browser and programs regularly',
+    'use_vpn_public_wifi' => 'Use VPN on public WiFi networks',
+    'monitor_account_activity' => 'Monitor your accounts regularly for suspicious activity',
+    'if_fell_victim' => 'If you fell victim to phishing:',
+    'change_password_immediately' => 'Change password immediately',
+    'enable_2fa_immediately' => 'Enable Two-Factor Authentication',
+    'monitor_account' => 'Monitor account for suspicious activity',
+    'report_to_company' => 'Report to the real company',
+    'report_to_authorities' => 'Report to authorities',
+    'monitor_bank_transfers' => 'Monitor your bank accounts for suspicious transfers',
+    'reporting_contacts' => 'Global Reporting Contacts',
+    'international' => '🌍 International',
+    'major_platforms' => '🏢 Major Platforms',
+    'regional' => '🗺️ Regional',
+    'google_safe_browsing' => 'Google Safe Browsing',
+    'report_harmful_sites' => 'Report harmful sites and phishing attempts',
+    'microsoft_smartscreen' => 'Microsoft SmartScreen',
+    'report_edge_threats' => 'Report threats on Edge browser',
+    'icann_domain' => 'ICANN (Domain)',
+    'report_harmful_domains' => 'Report harmful domains',
+    'remember_educational_content' => 'Remember: This guide is for educational purposes only',
+];
+
+// اختيار اللغة الحالية
+$trans = ($currentLang === 'ar') ? $ar : $en;
+
+/**
+ * دالة للحصول على النص المترجم
+ * 
+ * @param string $key مفتاح النص
+ * @return string النص المترجم
+ */
+function __($key) {
+    global $trans;
+    return $trans[$key] ?? $key;
+}
+
+/**
+ * دالة للطباعة المباشرة للنص المترجم
+ * 
+ * @param string $key مفتاح النص
+ */
+function _e($key) {
+    echo __($key);
+}
+
+?>
